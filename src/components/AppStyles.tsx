@@ -39,3 +39,16 @@ export const Title = styled.h1`
   font-size: 23px;
   font-weight: 600;
 `
+
+export const SubTitle = styled.h2`
+  color: #747474;
+  margin-bottom: 35px;
+  font-size: 23px;
+  font-weight: 600;
+`
+
+export const MainSection = styled.main`
+  max-width: 912px;
+  margin: 68px auto 96px auto;
+  padding: 0 32px;
+`

@@ -2,12 +2,16 @@ import React from 'react'
 import { Global } from '@emotion/core'
 import 'normalize.css'
 
+import randomParticipants from '../participants'
+import ParticipantList from './ParticipantList/ParticipantList'
 import {
   globalStyles,
   Header,
   HeaderContainer,
   Logo,
-  Title
+  Title,
+  MainSection,
+  SubTitle
 } from './AppStyles'
 
 const App: React.FC = () => (
@@ -19,6 +23,10 @@ const App: React.FC = () => (
         <Title>Nord Software</Title>
       </HeaderContainer>
     </Header>
+    <MainSection>
+      <SubTitle>List of participants</SubTitle>
+      <ParticipantList participants={randomParticipants(20)} />
+    </MainSection>
   </>
 )
 
