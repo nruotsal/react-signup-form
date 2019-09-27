@@ -8,13 +8,16 @@ import {
   DeleteIcon
 } from './ParticipantListStyles'
 
-export const ParticipantRow: React.FC<ParticipantRowProps> = ({ participant }) => (
-  <ParticipantRowContainer key={participant.id}>
-    <ColumnValue width="164px">{participant.name}</ColumnValue>
-    <ColumnValue width="275px">{participant.email}</ColumnValue>
-    <ColumnValue width="194px">{participant.phone}</ColumnValue>
+export const ParticipantRow: React.FC<ParticipantRowProps> = ({
+  participant: { id, name, email, phone },
+  deleteParticipant
+}) => (
+  <ParticipantRowContainer key={id}>
+    <ColumnValue width="164px">{name}</ColumnValue>
+    <ColumnValue width="275px">{email}</ColumnValue>
+    <ColumnValue width="194px">{phone}</ColumnValue>
     <EditIcon />
-    <DeleteIcon />
+    <DeleteIcon onClick={() => deleteParticipant(id)}/>
   </ParticipantRowContainer>
 )
 

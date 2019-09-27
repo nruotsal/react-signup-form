@@ -6,12 +6,16 @@ export type Participant = {
   isEditing: boolean;
 }
 
+export type DeleteParticipantFunction = (id: string) => void
+
 export interface ParticipantListProps {
   participants: Participant[];
+  deleteParticipant: DeleteParticipantFunction;
 }
 
 export interface ParticipantRowProps {
   participant: Participant;
+  deleteParticipant: DeleteParticipantFunction;
 }
 
 export type ColumnTitleProps = {
