@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Global } from '@emotion/core'
 import 'normalize.css'
 
@@ -7,21 +7,19 @@ import {
   Header,
   HeaderContainer,
   Logo,
-  Title,
+  Title
 } from './AppStyles'
 
-const App: React.FC = () => {
-  return (
-    <Fragment>
-      <Global styles={globalStyles} />
-      <Header>
-        <HeaderContainer>
-          <Logo />
-          <Title>Nord Software</Title>
-        </HeaderContainer>
-      </Header>
-    </Fragment>
-  )
-}
+const App: React.FC = () => (
+  <>
+    <Global styles={globalStyles} />
+    <Header>
+      <HeaderContainer>
+        <Logo />
+        <Title>Nord Software</Title>
+      </HeaderContainer>
+    </Header>
+  </>
+)
 
 export default App
