@@ -19,10 +19,6 @@ const App: React.FC = () => {
   const [participants, setParticipants] = useState(randomParticipants(20))
   const [sortedBy, setSortedBy] = useState(Column.name)
 
-  const deleteParticipant = (id: string) => (): void => {
-    setParticipants(participants.filter(participant => participant.id !== id))
-  }
-
   const sortParticipants = (column: Column) => (): void => {
     setParticipants([...participants].sort(sortByColumn(column)))
     setSortedBy(column)
@@ -30,6 +26,31 @@ const App: React.FC = () => {
 
   const sortByColumn = (key: Column) => (first: Participant, second: Participant): number =>
     first[key].localeCompare(second[key], undefined, { sensitivity: 'base' })
+
+  const editParticipant = (id: string) => (): void => {
+    setParticipants(participants.map(participant => participant.id === id
+      ? { ...participant, isEditing: true }
+      : participant
+    ))
+  }
+
+  const cancelEdit = (id: string) => (): void => {
+    setParticipants(participants.map(participant => participant.id === id
+      ? { ...participant, isEditing: false }
+      : participant
+    ))
+  }
+
+  const saveParticipant = (id: string) => (values: any): void => {
+    setParticipants(participants.map(participant => participant.id === id
+      ? { ...participant, ...values, isEditing: false }
+      : participant
+    ))
+  }
+
+  const deleteParticipant = (id: string) => (): void => {
+    setParticipants(participants.filter(participant => participant.id !== id))
+  }
 
   return (
     <>
@@ -46,6 +67,9 @@ const App: React.FC = () => {
           participants={participants}
           sortedBy={sortedBy}
           sortParticipants={sortParticipants}
+          editParticipant={editParticipant}
+          cancelEdit={cancelEdit}
+          saveParticipant={saveParticipant}
           deleteParticipant={deleteParticipant}
         />
       </MainSection>

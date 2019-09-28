@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Form, Field } from 'formik'
 
 import { ReactComponent as EditSvg } from '../../icons/edit.svg'
 import { ReactComponent as DeleteSvg } from '../../icons/delete.svg'
@@ -92,4 +93,68 @@ export const DownIcon = styled(DownSvg)`
   width: 14px;
   margin-left: 14px;
   vertical-align: middle;
+`
+
+export const CancelButton = styled.button`
+  background: #ececec;
+  color: #4376fb;
+  height: 40px;
+  width: 85px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+`
+
+export const SaveButton = styled.button`
+  background: #4376fb;
+  color: #ffffff;
+  height: 40px;
+  width: 79px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 7px;
+`
+
+export const EditParticipantForm = styled(Form)`
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  height: 72px;
+  border-bottom: 1px solid #ededee;
+  color: #505050;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0 16px;
+`
+
+export const FormField = styled(Field)`
+  height: 38px;
+  padding: 0 15px 0 15px;
+  border: 1px solid ${props => props.error ? '#df5617' : '#ededee'};
+  background: #fafafa;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-right: 16px;
+  outline: none;
+  color: #515151;
+`
+
+export const NameFormField = styled(FormField)`
+  width: 164px;
+`
+
+export const EmailFormField = styled(FormField)`
+  width: 275px;
+`
+
+export const PhoneFormField = styled(FormField)`
+  width: 194px;
 `
