@@ -20,33 +20,33 @@ const AddParticipantForm: React.FC<AddParticipantFormProps> = ({
       initialValues={{ name: '', email: '', phone: '' }}
       onSubmit={addParticipant}
     >
-      {({errors, touched}) => (
+      {({ errors, touched }) => (
         <AddForm>
           <NameFormField
-            type="text"
-            name="name"
-            placeholder="Full name"
+            type='text'
+            name='name'
+            placeholder='Full name'
             validate={validateName}
             error={errors.name && touched.name}
           />
 
           <EmailFormField
-            type="email"
-            name="email"
-            placeholder="E-mail address"
+            type='email'
+            name='email'
+            placeholder='E-mail address'
             validate={validateEmail}
             error={errors.email && touched.email}
           />
 
           <PhoneFormField
-            type="phone"
-            name="phone"
-            placeholder="Phone number"
+            type='phone'
+            name='phone'
+            placeholder='Phone number'
             validate={validatePhone}
             error={errors.phone && touched.phone}
           />
 
-          <AddButton type="submit">Add new</AddButton>
+          <AddButton type='submit'>Add new</AddButton>
         </AddForm>
       )}
     </Formik>

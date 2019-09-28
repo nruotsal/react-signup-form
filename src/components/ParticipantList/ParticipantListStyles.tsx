@@ -22,7 +22,7 @@ export const HeaderRow = styled.div`
 `
 
 export const ColumnTitle = styled('span')<ColumnTitleProps>`
-  color: ${ props => props.sorted ? '#515151' : '#757575' };
+  color: ${props => props.sorted ? '#515151' : '#757575'};
   margin-right: 16px;
   cursor: pointer;
 `

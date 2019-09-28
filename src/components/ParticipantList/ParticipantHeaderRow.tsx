@@ -20,7 +20,7 @@ export const ParticipantHeaderRow: React.FC<ParticipantHeaderRowProps> = ({
       onClick={sortParticipants(Column.name)}
     >
       Name
-      { sortedBy === Column.name && <DownIcon /> }
+      {sortedBy === Column.name && <DownIcon />}
     </NameColumnTitle>
 
     <EmailColumnTitle
@@ -28,14 +28,15 @@ export const ParticipantHeaderRow: React.FC<ParticipantHeaderRowProps> = ({
       onClick={sortParticipants(Column.email)}
     >
       E-mail address
-      { sortedBy === Column.email && <DownIcon /> }
+      {sortedBy === Column.email && <DownIcon />}
     </EmailColumnTitle>
 
     <PhoneColumnTitle
       sorted={sortedBy === Column.phone}
-      onClick={sortParticipants(Column.phone)}>
+      onClick={sortParticipants(Column.phone)}
+    >
       Phone number
-      { sortedBy === Column.phone && <DownIcon /> }
+      {sortedBy === Column.phone && <DownIcon />}
     </PhoneColumnTitle>
   </HeaderRow>
 )

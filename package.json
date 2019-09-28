@@ -22,14 +22,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/**/*.tsx"
+    "lint": "eslint --ext .tsx,.ts ./src"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "standard",
       "standard-react"
-    ]
+    ],
+    "rules": {
+      "react/prop-types": "off",
+      "react/jsx-closing-bracket-location": "off"
+    }
   },
   "browserslist": {
     "production": [
