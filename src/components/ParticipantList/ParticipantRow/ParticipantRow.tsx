@@ -15,7 +15,7 @@ export const ParticipantRow: React.FC<ParticipantRowProps> = ({
   editParticipant,
   deleteParticipant
 }) => (
-  <ParticipantRowContainer key={id}>
+  <ParticipantRowContainer>
     <NameColumnValue>{name}</NameColumnValue>
     <EmailColumnValue>{email}</EmailColumnValue>
     <PhoneColumnValue>{phone}</PhoneColumnValue>

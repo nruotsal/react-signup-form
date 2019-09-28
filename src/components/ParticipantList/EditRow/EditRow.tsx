@@ -11,7 +11,6 @@ const EditRow: React.FC<EditRowProps> = ({
 }) => (
   <FormContainer>
     <ParticipantForm
-      key={id}
       initialValues={{ name: name, email: email, phone: phone }}
       onSubmit={saveParticipant(id)}
     >

@@ -24,11 +24,13 @@ const ParticipantList: React.FC<ParticipantListProps> = ({
       participants.map(participant => (
         participant.isEditing
           ? <EditRow
+            key={participant.id}
             participant={participant}
             saveParticipant={saveParticipant}
             cancelEdit={cancelEdit}
           />
           : <ParticipantRow
+            key={participant.id}
             participant={participant}
             editParticipant={editParticipant}
             deleteParticipant={deleteParticipant}
