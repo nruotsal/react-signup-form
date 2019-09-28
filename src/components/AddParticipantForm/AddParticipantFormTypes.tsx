@@ -1,16 +1,7 @@
-import { FormikActions } from 'formik'
+import {
+  SubmitParticipantFormFunction
+} from '../Common/ParticipantForm/ParticipantFormTypes'
 
-export type AddParticipantFormValues = {
-  name: string;
-  email: string;
-  phone: string;
-}
-
-export type AddParticipantFunction = (
-  values: AddParticipantFormValues,
-  formikActions: FormikActions<AddParticipantFormValues>
-) => void
-
-export interface AddParticipantFormProps {
-  addParticipant: AddParticipantFunction;
+export type AddParticipantFormProps = {
+  addParticipant: SubmitParticipantFormFunction;
 }

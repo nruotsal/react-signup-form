@@ -11,3 +11,9 @@ export enum Column {
   email = 'email',
   phone = 'phone'
 }
+
+export type FormValues = {
+  name: string
+  email: string
+  phone: string
+}

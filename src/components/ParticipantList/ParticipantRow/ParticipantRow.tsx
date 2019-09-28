@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ParticipantRowProps } from './ParticipantListTypes'
+import { ParticipantRowProps } from './ParticipantRowTypes'
 import {
   ParticipantRowContainer,
   NameColumnValue,
@@ -8,7 +8,7 @@ import {
   PhoneColumnValue,
   EditIcon,
   DeleteIcon
-} from './ParticipantListStyles'
+} from './ParticipantRowStyles'
 
 export const ParticipantRow: React.FC<ParticipantRowProps> = ({
   participant: { id, name, email, phone },

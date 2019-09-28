@@ -1,20 +1,20 @@
 import React from 'react'
 
 import {
-  HeaderRow,
+  HeaderRowContainer,
   NameColumnTitle,
   EmailColumnTitle,
   PhoneColumnTitle,
   DownIcon
-} from './ParticipantListStyles'
-import { ParticipantHeaderRowProps } from './ParticipantListTypes'
-import { Column } from '../AppTypes'
+} from './HeaderRowStyles'
+import { HeaderRowProps } from './HeaderRowTypes'
+import { Column } from '../../AppTypes'
 
-export const ParticipantHeaderRow: React.FC<ParticipantHeaderRowProps> = ({
+export const HeaderRow: React.FC<HeaderRowProps> = ({
   sortedBy,
   sortParticipants
 }) => (
-  <HeaderRow>
+  <HeaderRowContainer>
     <NameColumnTitle
       sorted={sortedBy === Column.name}
       onClick={sortParticipants(Column.name)}
@@ -38,7 +38,7 @@ export const ParticipantHeaderRow: React.FC<ParticipantHeaderRowProps> = ({
       Phone number
       {sortedBy === Column.phone && <DownIcon />}
     </PhoneColumnTitle>
-  </HeaderRow>
+  </HeaderRowContainer>
 )
 
-export default ParticipantHeaderRow
+export default HeaderRow

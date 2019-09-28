@@ -1,8 +1,8 @@
 import React from 'react'
 
-import ParticipantHeaderRow from './ParticipantHeaderRow'
-import ParticipantRow from './ParticipantRow'
-import ParticipantRowEdit from './ParticipantRowEdit'
+import HeaderRow from './HeaderRow/HeaderRow'
+import ParticipantRow from './ParticipantRow/ParticipantRow'
+import EditRow from './EditRow/EditRow'
 import { ListContainer } from './ParticipantListStyles'
 import { ParticipantListProps } from './ParticipantListTypes'
 
@@ -16,14 +16,14 @@ const ParticipantList: React.FC<ParticipantListProps> = ({
   deleteParticipant
 }) => (
   <ListContainer>
-    <ParticipantHeaderRow
+    <HeaderRow
       sortedBy={sortedBy}
       sortParticipants={sortParticipants}
     />
     {
       participants.map(participant => (
         participant.isEditing
-          ? <ParticipantRowEdit
+          ? <EditRow
             participant={participant}
             saveParticipant={saveParticipant}
             cancelEdit={cancelEdit}

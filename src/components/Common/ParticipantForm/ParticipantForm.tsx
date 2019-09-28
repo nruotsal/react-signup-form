@@ -1,29 +1,32 @@
 import React from 'react'
 import { Formik } from 'formik'
 
-import { validateName, validateEmail, validatePhone } from '../../services/validator'
-import { ParticipantRowEditProps } from './ParticipantListTypes'
 import {
-  EditParticipantForm,
+  validateName,
+  validateEmail,
+  validatePhone
+} from '../../../services/validator'
+
+import {
+  FormContainer,
   NameFormField,
   EmailFormField,
-  PhoneFormField,
-  CancelButton,
-  SaveButton
-} from './ParticipantListStyles'
+  PhoneFormField
+} from './ParticipantFormStyles'
 
-const ParticipantRowEdit: React.FC<ParticipantRowEditProps> = ({
-  participant: { id, name, email, phone },
-  saveParticipant,
-  cancelEdit
+import { ParticipantFormProps } from './ParticipantFormTypes'
+
+const ParticipantForm: React.FC<ParticipantFormProps> = ({
+  initialValues,
+  onSubmit,
+  children
 }) => (
   <Formik
-    key={id}
-    initialValues={{ name: name, email: email, phone: phone }}
-    onSubmit={saveParticipant(id)}
+    initialValues={initialValues}
+    onSubmit={onSubmit}
   >
     {({ errors, touched }) => (
-      <EditParticipantForm>
+      <FormContainer>
         <NameFormField
           type='text'
           name='name'
@@ -48,11 +51,10 @@ const ParticipantRowEdit: React.FC<ParticipantRowEditProps> = ({
           error={errors.phone && touched.phone}
         />
 
-        <CancelButton onClick={cancelEdit(id)}>Cancel</CancelButton>
-        <SaveButton type='submit'>Save</SaveButton>
-      </EditParticipantForm>
+        {children}
+      </FormContainer>
     )}
   </Formik>
 )
 
-export default ParticipantRowEdit
+export default ParticipantForm
