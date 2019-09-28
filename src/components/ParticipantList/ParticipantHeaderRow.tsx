@@ -1,11 +1,42 @@
-import React from 'react';
-import { HeaderRow, ColumnTitle } from './ParticipantListStyles'
+import React from 'react'
 
-export const ParticipantHeaderRow: React.FC = () => (
+import {
+  HeaderRow,
+  NameColumnTitle,
+  EmailColumnTitle,
+  PhoneColumnTitle,
+  DownIcon
+} from './ParticipantListStyles'
+import { ParticipantHeaderRowProps } from './ParticipantListTypes'
+import { Column } from '../AppTypes'
+
+export const ParticipantHeaderRow: React.FC<ParticipantHeaderRowProps> = ({
+  sortedBy,
+  sortParticipants
+}) => (
   <HeaderRow>
-    <ColumnTitle width="164px">Name</ColumnTitle>
-    <ColumnTitle width="275px">E-mail address</ColumnTitle>
-    <ColumnTitle width="194px">Phone number</ColumnTitle>
+    <NameColumnTitle
+      sorted={sortedBy === Column.name}
+      onClick={sortParticipants(Column.name)}
+    >
+      Name
+      { sortedBy === Column.name && <DownIcon /> }
+    </NameColumnTitle>
+
+    <EmailColumnTitle
+      sorted={sortedBy === Column.email}
+      onClick={sortParticipants(Column.email)}
+    >
+      E-mail address
+      { sortedBy === Column.email && <DownIcon /> }
+    </EmailColumnTitle>
+
+    <PhoneColumnTitle
+      sorted={sortedBy === Column.phone}
+      onClick={sortParticipants(Column.phone)}>
+      Phone number
+      { sortedBy === Column.phone && <DownIcon /> }
+    </PhoneColumnTitle>
   </HeaderRow>
 )
 

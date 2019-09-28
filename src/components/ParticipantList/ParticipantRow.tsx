@@ -1,9 +1,11 @@
 import React from 'react'
 
-import { ParticipantRowProps } from './ParticipantListTypes';
+import { ParticipantRowProps } from './ParticipantListTypes'
 import {
   ParticipantRowContainer,
-  ColumnValue,
+  NameColumnValue,
+  EmailColumnValue,
+  PhoneColumnValue,
   EditIcon,
   DeleteIcon
 } from './ParticipantListStyles'
@@ -13,11 +15,11 @@ export const ParticipantRow: React.FC<ParticipantRowProps> = ({
   deleteParticipant
 }) => (
   <ParticipantRowContainer key={id}>
-    <ColumnValue width="164px">{name}</ColumnValue>
-    <ColumnValue width="275px">{email}</ColumnValue>
-    <ColumnValue width="194px">{phone}</ColumnValue>
+    <NameColumnValue>{name}</NameColumnValue>
+    <EmailColumnValue>{email}</EmailColumnValue>
+    <PhoneColumnValue>{phone}</PhoneColumnValue>
     <EditIcon />
-    <DeleteIcon onClick={() => deleteParticipant(id)}/>
+    <DeleteIcon onClick={deleteParticipant(id)}/>
   </ParticipantRowContainer>
 )
 
