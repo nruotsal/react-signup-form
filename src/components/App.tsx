@@ -20,20 +20,22 @@ import {
 } from './AppStyles'
 
 const App: React.FC = () => {
-  const [participants, setParticipants] = useState(randomParticipants(20))
+  const sortByColumn = (key: Column) => (first: Participant, second: Participant): number =>
+    first[key].localeCompare(second[key], undefined, { sensitivity: 'base' })
+
   const [sortedBy, setSortedBy] = useState(Column.name)
+  const [participants, setParticipants] = useState(randomParticipants(20).sort(sortByColumn(sortedBy)))
 
   const sortParticipants = (column: Column) => (): void => {
     setParticipants([...participants].sort(sortByColumn(column)))
     setSortedBy(column)
   }
 
-  const sortByColumn = (key: Column) => (first: Participant, second: Participant): number =>
-    first[key].localeCompare(second[key], undefined, { sensitivity: 'base' })
-
   const addParticipant = (values: FormValues, { resetForm }: FormikActions<FormValues>): void => {
     resetForm()
-    setParticipants([...participants, { id: generateUUID(), isEditing: false, ...values }])
+    setParticipants(
+      [...participants, { id: generateUUID(), isEditing: false, ...values }]
+        .sort(sortByColumn(sortedBy)))
   }
 
   const editParticipant = (id: string) => (): void => {
@@ -54,7 +56,7 @@ const App: React.FC = () => {
     setParticipants(participants.map(participant => participant.id === id
       ? { ...participant, ...values, isEditing: false }
       : participant
-    ))
+    ).sort(sortByColumn(sortedBy)))
   }
 
   const deleteParticipant = (id: string) => (): void => {
