@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Global } from '@emotion/core'
 import 'normalize.css'
 
+import { generateUUID } from '../services/uuid'
 import randomParticipants from '../participants'
 import ParticipantList from './ParticipantList/ParticipantList'
+import AddParticipantForm from './AddParticipantForm/AddParticipantForm'
 import { Participant, Column } from './AppTypes'
 import {
   globalStyles,
@@ -26,6 +28,11 @@ const App: React.FC = () => {
 
   const sortByColumn = (key: Column) => (first: Participant, second: Participant): number =>
     first[key].localeCompare(second[key], undefined, { sensitivity: 'base' })
+
+  const addParticipant = (values: any, { resetForm }: any): void => {
+    resetForm()
+    setParticipants([...participants, { id: generateUUID(), ...values }])
+  }
 
   const editParticipant = (id: string) => (): void => {
     setParticipants(participants.map(participant => participant.id === id
@@ -63,6 +70,7 @@ const App: React.FC = () => {
       </Header>
       <MainSection>
         <SubTitle>List of participants</SubTitle>
+        <AddParticipantForm addParticipant={addParticipant} />
         <ParticipantList
           participants={participants}
           sortedBy={sortedBy}
