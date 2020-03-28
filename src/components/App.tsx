@@ -69,7 +69,7 @@ const App: React.FC = () => {
       <Header>
         <HeaderContainer>
           <Logo />
-          <Title>Nord Software</Title>
+          <Title>Nikoru Software</Title>
         </HeaderContainer>
       </Header>
       <MainSection>
