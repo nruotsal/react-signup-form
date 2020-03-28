@@ -1,9 +1,9 @@
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import { FormValues } from '../../AppTypes'
 
 export type SubmitParticipantFormFunction = (
   values: FormValues,
-  formikActions: FormikActions<FormValues>
+  formikActions: FormikHelpers<FormValues>
 ) => void
 
 export type ParticipantFormProps = {

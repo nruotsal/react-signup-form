@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Global } from '@emotion/core'
-import { FormikActions } from 'formik'
+import { FormikHelpers } from 'formik'
 import 'normalize.css'
 
 import { generateUUID } from '../services/uuid'
@@ -31,7 +31,7 @@ const App: React.FC = () => {
     setSortedBy(column)
   }
 
-  const addParticipant = (values: FormValues, { resetForm }: FormikActions<FormValues>): void => {
+  const addParticipant = (values: FormValues, { resetForm }: FormikHelpers<FormValues>): void => {
     resetForm()
     setParticipants(
       [...participants, { id: generateUUID(), isEditing: false, ...values }]
