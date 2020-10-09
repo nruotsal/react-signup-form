@@ -14,7 +14,7 @@ Install packages
 
     yarn install
 
-Start development server
+Start development server and open browser
 
     yarn start
 
@@ -24,7 +24,13 @@ Run [ESLint](https://eslint.org/) style checker.
 
     yarn lint
 
-Run unit tests (TODO)
+Run browser tests
+
+1. Start server
+
+    yarn start:test
+
+2. Run tests in another console
 
     yarn test
 
