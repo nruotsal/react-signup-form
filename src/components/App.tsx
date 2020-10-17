@@ -7,6 +7,8 @@ import * as uuid from 'uuid'
 import { fetchParticipants } from '../services/participants'
 import ParticipantList from './ParticipantList/ParticipantList'
 import AddParticipantForm from './AddParticipantForm/AddParticipantForm'
+import LoadingSpinner from './Common/LoadingSpinner'
+import Error from './Common/Error'
 import { Participant, Column, FormValues } from './AppTypes'
 
 import {
@@ -25,9 +27,12 @@ const App: React.FC = () => {
 
   const [sortedBy, setSortedBy] = useState(Column.name)
   const [participants, setParticipants] = useState<Participant[]>([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<Error>()
 
   useEffect(() => {
-    fetchParticipants().then(setParticipants)
+    setLoading(true)
+    fetchParticipants().then(setParticipants).catch(setError).finally(() => setLoading(false))
   }, [])
 
   const sortParticipants = (column: Column) => (): void => {
@@ -79,7 +84,9 @@ const App: React.FC = () => {
       <MainSection>
         <SubTitle>List of participants</SubTitle>
         <AddParticipantForm addParticipant={addParticipant} />
-        <ParticipantList
+        {loading && <LoadingSpinner size={20} />}
+        {error && <Error>Failed to load participants</Error>}
+        {!loading && !error && <ParticipantList
           participants={participants}
           sortedBy={sortedBy}
           sortParticipants={sortParticipants}
@@ -87,7 +94,7 @@ const App: React.FC = () => {
           cancelEdit={cancelEdit}
           saveParticipant={saveParticipant}
           deleteParticipant={deleteParticipant}
-        />
+        />}
       </MainSection>
     </>
   )
