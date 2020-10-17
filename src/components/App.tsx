@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import 'normalize.css'
+import React, { useState, useEffect } from 'react'
 import { Global } from '@emotion/core'
 import { FormikHelpers } from 'formik'
-import 'normalize.css'
+import * as uuid from 'uuid'
 
-import { generateUUID } from '../services/uuid'
-import randomParticipants from '../services/participants'
+import { fetchParticipants } from '../services/participants'
 import ParticipantList from './ParticipantList/ParticipantList'
 import AddParticipantForm from './AddParticipantForm/AddParticipantForm'
 import { Participant, Column, FormValues } from './AppTypes'
@@ -24,7 +24,11 @@ const App: React.FC = () => {
     first[key].localeCompare(second[key], undefined, { sensitivity: 'base' })
 
   const [sortedBy, setSortedBy] = useState(Column.name)
-  const [participants, setParticipants] = useState(randomParticipants(20).sort(sortByColumn(sortedBy)))
+  const [participants, setParticipants] = useState<Participant[]>([])
+
+  useEffect(() => {
+    fetchParticipants().then(setParticipants)
+  }, [])
 
   const sortParticipants = (column: Column) => (): void => {
     setParticipants([...participants].sort(sortByColumn(column)))
@@ -34,7 +38,7 @@ const App: React.FC = () => {
   const addParticipant = (values: FormValues, { resetForm }: FormikHelpers<FormValues>): void => {
     resetForm()
     setParticipants(
-      [...participants, { id: generateUUID(), isEditing: false, ...values }]
+      [...participants, { id: uuid.v4(), isEditing: false, ...values }]
         .sort(sortByColumn(sortedBy)))
   }
 
