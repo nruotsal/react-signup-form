@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.js": "/react-signup-form/static/js/main.ff74fe28.chunk.js",
-    "main.js.map": "/react-signup-form/static/js/main.ff74fe28.chunk.js.map",
-    "runtime-main.js": "/react-signup-form/static/js/runtime-main.6b689031.js",
-    "runtime-main.js.map": "/react-signup-form/static/js/runtime-main.6b689031.js.map",
+    "main.js": "/react-signup-form/static/js/main.f8f1fac1.chunk.js",
+    "main.js.map": "/react-signup-form/static/js/main.f8f1fac1.chunk.js.map",
+    "runtime-main.js": "/react-signup-form/static/js/runtime-main.b2a5c87d.js",
+    "runtime-main.js.map": "/react-signup-form/static/js/runtime-main.b2a5c87d.js.map",
     "static/css/2.764ccc25.chunk.css": "/react-signup-form/static/css/2.764ccc25.chunk.css",
-    "static/js/2.4274b13d.chunk.js": "/react-signup-form/static/js/2.4274b13d.chunk.js",
-    "static/js/2.4274b13d.chunk.js.map": "/react-signup-form/static/js/2.4274b13d.chunk.js.map",
+    "static/js/2.d7475d97.chunk.js": "/react-signup-form/static/js/2.d7475d97.chunk.js",
+    "static/js/2.d7475d97.chunk.js.map": "/react-signup-form/static/js/2.d7475d97.chunk.js.map",
     "index.html": "/react-signup-form/index.html",
-    "precache-manifest.b922171ca809127a539c6e96d5afb880.js": "/react-signup-form/precache-manifest.b922171ca809127a539c6e96d5afb880.js",
+    "precache-manifest.7984e3294ec5c83d205d9f992933ea78.js": "/react-signup-form/precache-manifest.7984e3294ec5c83d205d9f992933ea78.js",
     "service-worker.js": "/react-signup-form/service-worker.js",
     "static/css/2.764ccc25.chunk.css.map": "/react-signup-form/static/css/2.764ccc25.chunk.css.map",
-    "static/js/2.4274b13d.chunk.js.LICENSE.txt": "/react-signup-form/static/js/2.4274b13d.chunk.js.LICENSE.txt",
+    "static/js/2.d7475d97.chunk.js.LICENSE.txt": "/react-signup-form/static/js/2.d7475d97.chunk.js.LICENSE.txt",
     "static/media/delete.d36bd4a7.svg": "/react-signup-form/static/media/delete.d36bd4a7.svg",
     "static/media/down.c14e32e3.svg": "/react-signup-form/static/media/down.c14e32e3.svg",
     "static/media/edit.fe223b7b.svg": "/react-signup-form/static/media/edit.fe223b7b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6b689031.js",
+    "static/js/runtime-main.b2a5c87d.js",
     "static/css/2.764ccc25.chunk.css",
-    "static/js/2.4274b13d.chunk.js",
-    "static/js/main.ff74fe28.chunk.js"
+    "static/js/2.d7475d97.chunk.js",
+    "static/js/main.f8f1fac1.chunk.js"
   ]
 }
