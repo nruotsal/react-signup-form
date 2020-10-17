@@ -8,41 +8,56 @@ Signup form frontend developed with React. Live demo available at [http://nruots
 * [Node.js](https://nodejs.org)
 * [Yarn](https://yarnpkg.com/en/docs/install)
 
+
 ## Development
 
 Install packages
 
-    yarn install
+```sh
+yarn install
+```
 
 Start development server and open browser
+```sh
+yarn start
+```
 
-    yarn start
 
 ## Testing
 
 Run [ESLint](https://eslint.org/) style checker.
 
-    yarn lint
+```sh
+yarn lint
+```
 
-Run browser tests
+Run browser tests with [Cypress](https://www.cypress.io/)
 
 1. Start server
 
-    yarn start:test
+```sh
+yarn start:test
+```
 
 2. Run tests in another console
 
-    yarn test
+```sh
+yarn test
+```
 
 
 ## Deployment
 
 Create production ready build
 
-    yarn build
+```sh
+yarn build
+```
 
 Deploy to Github pages
 
-    yarn deploy
+```sh
+yarn deploy
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
